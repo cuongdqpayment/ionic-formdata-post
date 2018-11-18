@@ -42,7 +42,7 @@ export class HomePage {
       //gui tung file hoac tat ca cac file
     });
 
-    this.httpClient.post('/form',formData)
+    this.httpClient.post('/file_upload',formData)
     .toPromise()
     .then(data=>console.log(data));
 
