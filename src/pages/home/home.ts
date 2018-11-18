@@ -2,7 +2,7 @@ import { Component, ViewChild } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { FormGroup, FormBuilder } from '@angular/forms';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import {MdDialog, MdDialogRef} from '@angular/material';
+import {MatDialog, MatDialogRef} from '@angular/material';
 
 @Component({
   selector: 'page-home',
