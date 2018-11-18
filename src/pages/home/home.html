@@ -1,14 +1,52 @@
 <ion-header>
   <ion-navbar>
     <ion-title>
-      Ionic Blank
+      Login form
     </ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-  The world is your oyster.
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
-  </p>
+  <form (ngSubmit)="onSubmit()" [formGroup]="myFromGroup">
+
+    <ion-item>
+      <ion-label floating>Username</ion-label>
+      <ion-input type="text" formControlName="user"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label floating>Password</ion-label>
+			<ion-input type="password" formControlName="pass" ></ion-input>			
+    </ion-item>
+  
+    <ion-item>
+        <ion-buttons>
+          <button ion-button type="button" icon-end (click)="addFiles()">
+            Open file
+            <ion-icon name="images"></ion-icon>
+          </button>	
+          <button ion-button type="button" icon-only color="royal">
+              <ion-icon name="share-alt" ios="ios-share-alt" md="md-share-alt"></ion-icon>
+          </button>
+          <button ion-button type="button" icon-start>
+              <ion-icon name="star"></ion-icon>
+              Left Icon
+          </button>
+        </ion-buttons>
+    </ion-item>
+   
+    <ion-item>
+        <ion-input type="file" #file expandable formControlName="fileload" (change)="fileChange($event)"></ion-input>
+    </ion-item>
+    <ion-item *ngIf="isImageViewer">
+        <img [src]="imageViewer" style="width: 345px; height: 237px;"/>	
+        <!-- Nut button goi ham click submit form??? -->
+        <button ion-button expandable (click)="resetImage()">
+            <ion-icon name="star"></ion-icon>
+        </button>	
+    </ion-item>
+
+    <ion-item>
+      <button ion-button type="submit" full color="primary">Post to server</button>
+    </ion-item>
+ </form>
 </ion-content>

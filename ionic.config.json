@@ -1,5 +1,7 @@
 {
   "name": "ionic-form-post",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "ionic-angular"
 }
