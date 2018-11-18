@@ -23,13 +23,16 @@ server.all('*', (req, res, next) => {
 
     if ("POST" == method) {
         //neu duong dan post co ten la upload file thi xu ly upload
-        if (pathName == '/form') {
+        if (pathName == '/file_upload') {
             var form = new formidable.IncomingForm();
             //luu tru file vao dia 
             form.parse(req, function (err, fields, files) {
                 //lay ket qua form o day
+                console.log('files:');
                 console.log(files);
+                console.log('fields:');
                 console.log(fields);
+                console.log('err:');
                 console.log(err);
             });
         }

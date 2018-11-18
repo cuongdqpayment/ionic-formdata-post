@@ -6,11 +6,6 @@ import { HttpClientModule } from '@angular/common/http';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
 
-import { MatButtonModule, MatDialogModule, MatListModule, MatProgressBarModule } from '@angular/material';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { FlexLayoutModule } from '@angular/flex-layout';
-
-
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 
@@ -24,13 +19,6 @@ import { HomePage } from '../pages/home/home';
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    MatButtonModule, 
-    MatDialogModule, 
-    MatListModule, 
-    FlexLayoutModule, 
-    HttpClientModule, 
-    BrowserAnimationsModule, 
-    MatProgressBarModule,
     IonicModule.forRoot(MyApp)
   ],
   bootstrap: [IonicApp],

@@ -1,8 +1,7 @@
 import { Component, ViewChild } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { FormGroup, FormBuilder } from '@angular/forms';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
-import {MatDialog, MatDialogRef} from '@angular/material';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'page-home',
@@ -10,6 +9,7 @@ import {MatDialog, MatDialogRef} from '@angular/material';
 })
 export class HomePage {
   @ViewChild('file') file;
+  public files: Set<File> = new Set();
 
   myFromGroup: FormGroup;
   imageViewer: any;
@@ -28,21 +28,27 @@ export class HomePage {
   }
 
   onSubmit() {
+    
     console.log(this.myFromGroup.value);
 
-    /* var formData: FormData = new FormData();
+    // create a new multipart-form for every file
+    var formData: FormData = new FormData();
 
     formData.append("hovaten","Ten va ho");
     formData.append("pass","khong ro");
-    formData.append("file_upload","khong ro");
 
+    this.files.forEach(file => {
+      formData.append('file', file, file.name);
+      //gui tung file hoac tat ca cac file
+    });
 
     this.httpClient.post('/form',formData)
     .toPromise()
-    .then(data=>console.log(data)); */
+    .then(data=>console.log(data));
 
   }
 
+  
 
   fileChange(event){
 
@@ -53,7 +59,7 @@ export class HomePage {
       }
     } */
 
-    //console.log(event);
+    console.log(event);
     //console.log(JSON.stringify(event));
     
     if (event.target && event.target.files && event.target.files[0]) {
@@ -67,6 +73,18 @@ export class HomePage {
       reader.readAsDataURL(event.target.files[0]);
       //sau khi doc xong thi ket qua tra ve 
       //tren event.target.result tren ham onload o tren
+
+      //dua vao mang file
+      const files: { [key: string]: File } = event.target.files;
+      for (let key in files) { //index, length, item
+        if (!isNaN(parseInt(key))) {
+          //chi khoa index thoi
+          console.log(files[key]);
+          this.files.add(files[key]);
+        }
+      }
+
+
     }
   }
 
@@ -74,6 +92,8 @@ export class HomePage {
   addFiles() {
     //console.log("click file");
     console.log(this.file);
+
+    //console.log(this.file.nativeElement.files);
     //this.file.nativeElement;
   }
 
