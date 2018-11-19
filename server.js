@@ -78,7 +78,7 @@ server.post('/file_upload',(req,res,next)=>{
 server.get('*', function(req, res){
   //gui trang thai bao noi dung tra ve
   res.writeHead(404, {'Content-Type': 'text/html; charset=utf-8' });
-  res.end('<p>Đừng tìm kiếm vô ích. Đố mầy hack tau đấy!</p>');
+  res.end('<h1>Đừng tìm kiếm vô ích. Đố mầy hack tau đấy!</h1>');
 });
 
 //-----------------------------------------------------
