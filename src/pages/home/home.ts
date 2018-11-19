@@ -15,9 +15,9 @@ export class HomePage {
   imageViewer: any;
   isImageViewer: boolean = false;
 
-  constructor(public navCtrl: NavController, 
-              private formBuilder:FormBuilder,
-              private httpClient: HttpClient) { }
+  constructor(public navCtrl: NavController,
+    private formBuilder: FormBuilder,
+    private httpClient: HttpClient) { }
 
   ngOnInit() {
     this.myFromGroup = this.formBuilder.group({
@@ -28,29 +28,31 @@ export class HomePage {
   }
 
   onSubmit() {
-    
+
     console.log(this.myFromGroup.value);
 
     // create a new multipart-form for every file
     var formData: FormData = new FormData();
 
-    formData.append("hovaten","Ten va ho");
-    formData.append("pass","khong ro");
+    formData.append("hovaten", "Ten va ho");
+    formData.append("pass", "khong ro");
 
     this.files.forEach(file => {
-      formData.append('file', file, file.name);
+      formData.append('file2Upload', file, file.name);
       //gui tung file hoac tat ca cac file
     });
 
-    this.httpClient.post('/file_upload',formData)
-    .toPromise()
-    .then(data=>console.log(data));
+    this.httpClient.post('/file_upload', formData)
+      .toPromise()
+      .then(data => console.log(data))
+      .catch(err => console.log(err));
+    ;
 
   }
 
-  
 
-  fileChange(event){
+
+  fileChange(event) {
 
     /* const files: { [key: string]: File } = this.file.nativeElement.files;
     for (let key in files) {
@@ -61,7 +63,7 @@ export class HomePage {
 
     console.log(event);
     //console.log(JSON.stringify(event));
-    
+
     if (event.target && event.target.files && event.target.files[0]) {
       let reader = new FileReader();
       //ham nhan ket qua doc du lieu file
@@ -88,18 +90,19 @@ export class HomePage {
     }
   }
 
+  resetImage() {
+    this.isImageViewer = false;
+    console.log("bam nut reset");
+
+  }
+
+
   //Goi nut lenh lay file nhu doi tuong file cua he thong
   addFiles() {
     //console.log("click file");
-    console.log(this.file);
+    console.log(this.file.click());
 
     //console.log(this.file.nativeElement.files);
     //this.file.nativeElement;
-  }
-
-  resetImage(){
-    this.isImageViewer = false;
-    console.log("bam nut reset");
-    
   }
 }
