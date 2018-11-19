@@ -1,4 +1,26 @@
 page-home {
+    .my-file-upload {
+        //background-color: rgb(24, 53, 219);
+        position: relative;
+        //cursor: pointer;
+        width: 300px;
+        height: 60px;
+        line-height: 20px;
+        padding: 5px 5px;
+        border: 2px solid #203F53;
+        border-radius: 10px;
+    }
+
+    .my-file-upload-icon {
+        background-image: url("../../assets/icon/favicon.ico");
+        height: 30px;
+        width: 30px;
+        background-size: cover;
+        background-color: transparent;
+        border: none;
+        float: right;
+    }
+
     input[type="file"]{
         position: absolute;
         top: 0;
@@ -10,6 +32,12 @@ page-home {
         cursor: pointer;
     } 
     
+
+    ion-card.cards-list-demo ion-card-header {
+        color: map-get($colors, primary);
+      }
+
+      
     .upload-field {
         position: relative;
         cursor: pointer;
@@ -22,7 +50,7 @@ page-home {
     }
     
     .icon-folder {
-        background-image: url("../images/icon-folder.png");
+        background-image: url("../../assets/icon/favicon.ico");
         height: 30px;
         width: 30px;
         background-size: cover;

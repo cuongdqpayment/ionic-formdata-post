@@ -1,4 +1,4 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, ViewChild, ElementRef } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { FormGroup, FormBuilder } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
@@ -8,7 +8,7 @@ import { HttpClient } from '@angular/common/http';
   templateUrl: 'home.html'
 })
 export class HomePage {
-  @ViewChild('file') file;
+  //@ViewChild('file') file: ElementRef;
   public files: Set<File> = new Set();
 
   myFromGroup: FormGroup;
@@ -100,7 +100,7 @@ export class HomePage {
   //Goi nut lenh lay file nhu doi tuong file cua he thong
   addFiles() {
     //console.log("click file");
-    console.log(this.file.click());
+    //console.log(this.file);
 
     //console.log(this.file.nativeElement.files);
     //this.file.nativeElement;

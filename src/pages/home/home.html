@@ -6,7 +6,7 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
+<ion-content padding class="cards-bg">
   <form (ngSubmit)="onSubmit()" [formGroup]="myFromGroup">
 
     <ion-item>
@@ -34,9 +34,57 @@
         </ion-buttons>
     </ion-item>
    
-    <ion-item>
-        <ion-input type="file" #file expandable formControlName="fileload" (change)="fileChange($event)"></ion-input>
+
+    <ion-item class="my-file-upload">
+        <input type="file">
+      <ion-buttons end>
+          Chọn file ở đây
+          <ion-icon name="images" color="blue"></ion-icon>
+      </ion-buttons>
     </ion-item>
+
+
+    <ion-item>
+      <ion-buttons  end>
+        <button ion-button type="button" icon-only round>
+            <input type="file" multiple>
+            Chọn nhiều file
+            <ion-icon name="share-alt" ios="ios-share-alt" md="md-share-alt"></ion-icon>
+            </button>
+        </ion-buttons>
+      </ion-item>
+
+    <ion-item class="my-file-upload">
+        Danh sách file nằm ở đây
+        <input type="file">
+        <button class="my-file-upload-icon"></button>
+    </ion-item>
+
+    <ion-item class="upload-field">
+        mở nhiều file ra
+         <input type="file" multiple/>
+         <button class="icon-folder"></button>
+    </ion-item>
+
+ 
+    <ion-item >
+        <button type="button" class="upload-file-button" icon-start>
+           <ion-icon name="star"></ion-icon>
+           Import
+         </button>
+   </ion-item>
+
+
+    <ion-item>
+        <ion-buttons  start>
+          <button ion-button type="button" icon-end round>
+              <input type="file" multiple expandable accept="image/*" formControlName="fileload" (change)="fileChange($event)">
+              Chọn nhiều file ảnh
+              <ion-icon name="images"></ion-icon>
+              </button>
+          </ion-buttons>
+    </ion-item>
+
     <ion-item *ngIf="isImageViewer">
         <img [src]="imageViewer" style="width: 345px; height: 237px;"/>	
         <!-- Nut button goi ham click submit form??? -->
@@ -45,20 +93,91 @@
         </button>	
     </ion-item>
 
+
+
+    <ion-card *ngIf="isImageViewer" col-12 col-xl-4 col-lg-4 col-md-6 col-sm-6>
+        <img [src]="imageViewer" style="width: 100%; height: 40%;"/>	
+        <ion-card-content>
+          <ion-card-title>
+            Nine Inch Nails Live
+            </ion-card-title>
+          <p>
+            The most popular industrial group ever, and largely
+            responsible for bringing the music to a mass audience.
+          </p>
+        </ion-card-content>
+        <ion-row no-padding>
+            <ion-col>
+              <button ion-button clear small color="danger" icon-start>
+                <ion-icon name='star'></ion-icon>
+                Favorite
+              </button>
+            </ion-col>
+            <ion-col text-center>
+              <button ion-button clear small color="danger" icon-start>
+                <ion-icon name='musical-notes'></ion-icon>
+                Listen
+              </button>
+            </ion-col>
+            <ion-col text-right>
+              <button ion-button clear small color="danger" icon-start>
+                <ion-icon name='share-alt'></ion-icon>
+                Share
+              </button>
+            </ion-col>
+          </ion-row>
+      </ion-card>
+
+
+
+
     <ion-item>
       <button ion-button type="submit" full color="primary">Post to server</button>
     </ion-item>
  </form>
 
 
+ <ion-card class="cards-list-demo">
+    <ion-card-header>
+      Explore Nearby
+    </ion-card-header>
+
+    <ion-list>
+      <button ion-item>
+        <ion-icon name='cart' item-start></ion-icon>
+        Shopping
+      </button>
+
+      <button ion-item>
+        <ion-icon name='medical' item-start></ion-icon>
+        Hospital
+      </button>
+
+      <button ion-item>
+        <ion-icon name='cafe' item-start></ion-icon>
+        Cafe
+      </button>
+
+      <button ion-item>
+        <ion-icon name='paw' item-start></ion-icon>
+        Dog Park
+      </button>
+
+      <button ion-item>
+        <ion-icon name='beer' item-start></ion-icon>
+        Pub
+      </button>
+
+      <button ion-item>
+        <ion-icon name='planet' item-start></ion-icon>
+        Space
+      </button>
+
+    </ion-list>
+  </ion-card>
 
 
- <div class="upload-field">
- abc...
-  <input type="file" id="uploadFileInput"/>
-  <button class="icon-folder"></button>
-</div>
-<button class="upload-file-button" ng-click="uploadFile()">Import</button>
+ 
 
 
 </ion-content>
